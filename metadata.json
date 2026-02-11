@@ -1,0 +1,9 @@
+{
+  "name": "Focus Flow Elevation (FFE) Intelligence Hub",
+  "description": "The Elite AI strategy ecosystem by Coach Kay. Specialized reasoning, Veo-powered asset creation, and Focus Flow Protocols. Hero Offer: $697 Summit Seat.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
