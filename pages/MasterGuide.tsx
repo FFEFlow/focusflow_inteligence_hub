@@ -8,12 +8,20 @@ const MasterGuide: React.FC = () => (
 
     <div className="prose prose-invert max-w-none space-y-8">
       <section className="premium-card p-10 rounded-[3rem]">
-        <h3 className="text-2xl font-bold text-white mb-4">Phase 1: The Blueprint</h3>
-        <p className="text-white/60">Start with the Clarity Scan and Leak Detector. Before you scale, you must eliminate friction.</p>
+        <h3 className="text-2xl font-bold text-white mb-4">Phase 1: The Blueprint (Day 01)</h3>
+        <p className="text-white/60 mb-4">Focus on deconstruction. Use the **Clarity Scan** to find your $100K bottleneck and the **Leak Detector** to stop operational drain.</p>
+        <div className="bg-white/5 p-6 rounded-2xl border border-[#D4B46C]/10">
+           <p className="text-[10px] gold-text font-black uppercase tracking-widest mb-2">Tactical Step:</p>
+           <p className="text-xs text-white/40">Input your current revenue data and let the AI identify exactly where you are losing momentum.</p>
+        </div>
       </section>
       <section className="premium-card p-10 rounded-[3rem]">
-        <h3 className="text-2xl font-bold text-white mb-4">Phase 2: The Foundry</h3>
-        <p className="text-white/60">Use the Legacy Architect and Veo Storyboard to build high-status assets that attract elite clients.</p>
+        <h3 className="text-2xl font-bold text-white mb-4">Phase 2: The Foundry (Day 02)</h3>
+        <p className="text-white/60 mb-4">Focus on construction. Use the **Legacy Architect** to build your core offer and **Veo Storyboard** for cinematic brand visuals.</p>
+        <div className="bg-white/5 p-6 rounded-2xl border border-[#D4B46C]/10">
+           <p className="text-[10px] gold-text font-black uppercase tracking-widest mb-2">Tactical Step:</p>
+           <p className="text-xs text-white/40">Download your Blueprints after each session and use them to train your external Google Workspace tools.</p>
+        </div>
       </section>
     </div>
   </div>
