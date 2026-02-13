@@ -116,14 +116,14 @@ export const MODULES: ModuleDefinition[] = [
   },
   { 
     id: 'ai-scorer', 
-    title: 'Automation Audit', 
-    description: 'A technical scan to identify workflows that can be offloaded to neural infrastructure.', 
+    title: 'Automation Audit (Nano-Logic)',
+    description: 'A technical scan to identify workflows that can be offloaded to neural infrastructure and on-device Nano models.',
     icon: 'AI', 
     tier: UserTier.SUMMIT, 
-    whatYouGet: ['Automation List'], 
-    systemPrompt: 'Scrub manual tasks for automation potential. Prioritize tasks based on "Neural ROI" (Hours saved vs. Implementation complexity).', 
+    whatYouGet: ['Automation List', 'Nano Use-Cases'],
+    systemPrompt: 'Scrub manual tasks for automation potential. Prioritize tasks based on "Neural ROI" and identify opportunities for on-device Nano-model implementation for mobile efficiency.',
     initialQuestion: 'List 3 tasks that currently consume the majority of your weekly cognitive load.',
-    architectDefinition: 'Course Note 03: Neural ROI Mapping. High-status operators do not perform repetitive tasks. Transition to neural-driven scaling.',
+    architectDefinition: 'Course Note 03: Neural ROI Mapping. High-status operators do not perform repetitive tasks. Transition to Nano-driven scaling.',
     summitDay: 1
   },
   { 
@@ -240,16 +240,28 @@ export const MODULES: ModuleDefinition[] = [
   },
   { 
     id: 'mogul-engine', 
-    title: 'Custom Tools Foundry', 
-    description: 'Crafting specialized AI agents to handle the heavy lifting of your specific brand workflows.', 
+    title: 'Custom Tools Foundry (Google FX)',
+    description: 'Crafting specialized AI agents and experimental Google FX tools to handle specific brand workflows.',
     icon: 'AI', 
     tier: UserTier.WHITE_LABEL, 
-    whatYouGet: ['Custom System Prompts'], 
-    systemPrompt: 'Architect complex system instructions for custom AI agents. Focus on technical workflow optimization.', 
-    initialQuestion: 'What specific repetitive cognitive task are we building an AI agent to solve today?',
-    architectDefinition: 'Partner Note: Proprietary Asset Foundry. Creating custom AI operatives to execute implementations at scale.',
+    whatYouGet: ['Custom System Prompts', 'FX Logic'],
+    systemPrompt: 'Architect complex system instructions for custom AI agents and experimental Google FX tools. Focus on technical workflow optimization and rapid experimentation.',
+    initialQuestion: 'What specific repetitive cognitive task are we building an AI agent or FX tool to solve today?',
+    architectDefinition: 'Partner Note: Proprietary Asset Foundry. Creating custom AI operatives and FX experiments to execute implementations at scale.',
     summitDay: 2
   },
   { id: 'crisis-navigator', title: 'The Pivot Partner', description: 'Executing rapid strategic shifts for when the market moves faster than your current plan.', icon: 'Leak', tier: UserTier.WHITE_LABEL, whatYouGet: ['Pivot Plan'], systemPrompt: 'Conduct high-stakes risk assessment. Develop rapid pivot protocols for market disruption.', initialQuestion: 'What major market shift or internal crisis requires a strategic pivot?', architectDefinition: 'Partner Note: Emergency Strategic Override.', summitDay: 1 },
-  { id: 'partner-ecosystem', title: 'Partner Hub', description: 'Internal tools for our inner circle to scale white-label ecosystems.', icon: 'Legacy', tier: UserTier.WHITE_LABEL, whatYouGet: ['Brand Config'], systemPrompt: 'Scale partner ecosystems with white-label brand configuration protocols.', initialQuestion: 'What is the target brand name for this ecosystem expansion?', architectDefinition: 'Partner Note: White-Label Infrastructure.', summitDay: 2 }
+  { id: 'partner-ecosystem', title: 'Partner Hub', description: 'Internal tools for our inner circle to scale white-label ecosystems.', icon: 'Legacy', tier: UserTier.WHITE_LABEL, whatYouGet: ['Brand Config'], systemPrompt: 'Scale partner ecosystems with white-label brand configuration protocols.', initialQuestion: 'What is the target brand name for this ecosystem expansion?', architectDefinition: 'Partner Note: White-Label Infrastructure.', summitDay: 2 },
+  {
+    id: 'notebook-analyst',
+    title: 'NotebookLM Analyst',
+    description: 'A deep-intelligence module for document synthesis and long-context strategic reasoning.',
+    icon: 'Guide',
+    tier: UserTier.SUMMIT,
+    whatYouGet: ['Synthesis Report'],
+    systemPrompt: 'You are the NotebookLM Strategic Analyst. Your goal is to synthesize complex business documents and ideas into cohesive legacy strategies. Use long-context reasoning to identify non-obvious connections.',
+    initialQuestion: 'Provide the core strategic documents or complex ideas you want me to synthesize today.',
+    architectDefinition: 'Course Note 12: Deep Synthesis. Multi-document intelligence for high-stakes decision making.',
+    summitDay: 2
+  }
 ];

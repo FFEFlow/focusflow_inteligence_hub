@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { User, UserTier } from './types';
@@ -39,7 +40,9 @@ const App: React.FC = () => {
         setHasApiKey(has);
         if (!has && user) setShowAuthModal(true);
       } else {
-        setHasApiKey(!!process.env.API_KEY);
+        // Safe check for process.env (replaced by Vite define)
+        const key = (typeof process !== 'undefined' && process.env?.API_KEY) || (import.meta as any).env?.VITE_GEMINI_API_KEY;
+        setHasApiKey(!!key);
       }
     };
     checkKeyStatus();

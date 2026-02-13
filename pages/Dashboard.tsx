@@ -12,8 +12,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const [showWarRoom, setShowWarRoom] = useState(false);
 
   const masterModule = MODULES.find(m => m.id === 'legacy-engine');
-  const assistantModules = MODULES.filter(m => m.id === 'mogul-engine' || m.id === 'user-guide');
-  const gridModules = MODULES.filter(m => m.id !== 'legacy-engine' && m.id !== 'mogul-engine' && m.id !== 'user-guide');
+  const assistantModules = MODULES.filter(m => m.id === 'mogul-engine' || m.id === 'notebook-analyst');
+  const gridModules = MODULES.filter(m => m.id !== 'legacy-engine' && m.id !== 'mogul-engine' && m.id !== 'notebook-analyst');
 
   return (
     <div className="min-h-screen bg-[#0A0E27]">
