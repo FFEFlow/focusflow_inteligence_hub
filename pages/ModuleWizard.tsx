@@ -81,11 +81,8 @@ const ModuleWizard: React.FC<ModuleWizardProps> = ({ user }) => {
 
       const genAI = new GoogleGenAI(apiKey);
 
-      // Determine if search grounding is needed
-      const useSearch = module.id === 'nexus-intelligence' ||
-                        module.id === 'authority-agent' ||
-                        module.id === 'search-dominator' ||
-                        module.id === 'maps-strategist';
+      // Enable Search Grounding for all modules to ensure 2026 real-time accuracy
+      const useSearch = true;
 
       // Enhance System Prompt for "Creation" tools
       const creationTools = [
@@ -207,7 +204,23 @@ const ModuleWizard: React.FC<ModuleWizardProps> = ({ user }) => {
                       {GOOGLE_TOOL_LINKS[module.id] && (
                         <button
                           onClick={() => {
-                            navigator.clipboard.writeText(msg.content);
+                            // OPTIMIZED NEURAL LINK: Extract prompt from markdown if present
+                            let cleanPrompt = msg.content;
+                            const promptMatch = msg.content.match(/```(?:prompt|text|markdown)?\n([\s\S]*?)\n```/) ||
+                                              msg.content.match(/\*\*Prompt:\*\*\s*(.*)/i);
+
+                            if (promptMatch) {
+                              cleanPrompt = promptMatch[1].trim();
+                            } else if (msg.content.includes("###")) {
+                              // If it's a long report, try to find the "Specification" or "Prompt" section
+                              const lines = msg.content.split('\n');
+                              const startIndex = lines.findIndex(l => l.toLowerCase().includes('prompt') || l.toLowerCase().includes('specification'));
+                              if (startIndex !== -1) {
+                                cleanPrompt = lines.slice(startIndex + 1).join('\n').trim();
+                              }
+                            }
+
+                            navigator.clipboard.writeText(cleanPrompt);
                             window.open(GOOGLE_TOOL_LINKS[module.id].url, '_blank');
                           }}
                           className="bg-white border-2 border-[#D4B46C] text-black px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest shadow-xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2"

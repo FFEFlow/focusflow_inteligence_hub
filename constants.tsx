@@ -111,6 +111,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'You are the Nano Banana Photo Editor. Guide users through advanced photo editing workflows including object addition, background removal, and style transfer logic.',
     initialQuestion: 'Describe the image modification you want to perform (e.g., "Remove the background and add a gold office setting").',
     architectDefinition: 'Neural Asset 01: Nano-Powered Visuals. Leverage on-device neural logic for rapid brand asset iteration.',
+    tooltip: 'Collapses the distance between raw concept and high-fidelity brand imagery instantly.',
     summitDay: 1
   },
   {
@@ -123,6 +124,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Translate brand narrative into cinematic visual prompts for Veo 3 animation. Focus on turning static assets into dynamic video ads.',
     initialQuestion: 'Provide the static image description or product photo we are animating today.',
     architectDefinition: 'Neural Asset 02: Dynamic Motion. Use Veo to turn static authority into cinematic dominance.',
+    tooltip: 'Transforms static brand presence into high-velocity cinematic motion assets.',
     summitDay: 1
   },
   { 
@@ -135,6 +137,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Use search grounding to identify high-authority keywords and real-time news. Architect content that secures 1st-page dominance.',
     initialQuestion: 'What current event or industry news do we need to synthesize into your legacy strategy today?',
     architectDefinition: 'Neural Asset 03: Real-time Grounding. Your strategy must live in the present. Connect your legacy to the global pulse.',
+    tooltip: 'Synchronizes your business intelligence with 2026 real-time global market data.',
     summitDay: 1
   },
   {
@@ -147,6 +150,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Analyze location-based business opportunities using real-time Google Maps data. Architect routes, place-based authority, and local expansion.',
     initialQuestion: 'What geographic region or location-based business goal are we auditing today?',
     architectDefinition: 'Neural Asset 04: Geospatial Intelligence. Dominating the physical market using neural location data.',
+    tooltip: 'Engineers localized authority by weaponizing geospatial intelligence for market dominance.',
     summitDay: 1
   },
   { 
@@ -159,6 +163,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Architect conversational voice experiences. Use Gemini Live API logic to create fluid, natural-sounding interactions for your brand.',
     initialQuestion: 'What is the primary objective of your conversational voice app?',
     architectDefinition: 'Neural Asset 05: Conversational Authority. Engage your market through fluid, neural voice interactions.',
+    tooltip: 'Automates elite client interactions through low-latency, high-status voice operatives.',
     summitDay: 1
   },
   { 
@@ -171,6 +176,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Generate high-fidelity image prompts for Nano Banana models. Focus on creating blog heroes, concepts, and unique brand assets.',
     initialQuestion: 'What unique visual asset are we generating for your application today?',
     architectDefinition: 'Neural Asset 06: Proprietary Asset Foundry. Creating custom visual operatives at scale.',
+    tooltip: 'Rapidly synthesizes proprietary visual assets for high-ticket content funnels.',
     summitDay: 1
   },
   { 
@@ -183,6 +189,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Use Gemini intelligence to analyze complex content, make edits, and complete sophisticated tasks. Focus on high-level strategic reasoning.',
     initialQuestion: 'Provide the content or sophisticated task we are analyzing today.',
     architectDefinition: 'Neural Asset 07: High-Tier Reasoning. The ultimate neural engine for strategic execution.',
+    tooltip: 'Deploys advanced reasoning models to deconstruct and solve complex strategic bottlenecks.',
     summitDay: 1
   },
   { 
@@ -195,6 +202,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Architect context-aware chatbots that remember conversations and handle multi-step tasks. Perfect for support agents or booking systems.',
     initialQuestion: 'Describe the support agent or multi-step booking task your chatbot will handle.',
     architectDefinition: 'Neural Asset 08: Autonomous Operatives. Scale your support and conversion without human friction.',
+    tooltip: 'Scales your conversion capability by deploying autonomous, context-aware digital operatives.',
     summitDay: 1
   },
 
@@ -209,6 +217,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'You are the Veo Cinema Architect. Convert user text (blogs/scripts) into highly detailed cinematic prompts for Google Veo. Focus on visual storytelling, camera angles, and lighting.',
     initialQuestion: 'Provide the script or blog post you want to transform into a cinematic video clip.',
     architectDefinition: 'Neural Asset 09: Prompt-Based Video. Collapsing the distance between idea and cinema.',
+    tooltip: 'Automates cinematic content production by converting text narratives into visual masterpieces.',
     summitDay: 2
   },
   { 
@@ -221,6 +230,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Architect precise image generation parameters. Focus on aspect ratios, composition, and resolution scaling for different device formats.',
     initialQuestion: 'What is the target format for your visual asset (e.g., Vertical Mobile Wallpaper or Horizontal Web Header)?',
     architectDefinition: 'Neural Asset 10: Ratio Precision. Engineering the exact shape of your brand authority.',
+    tooltip: 'Ensures platform-perfect visual dominance by engineering exact asset dimensions.',
     summitDay: 2
   },
   { 
@@ -233,6 +243,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Analyze visual data with extreme precision. Extract text, identify patterns in charts, and summarize complex visual information.',
     initialQuestion: 'Upload or describe the image (receipt, chart, menu) you need me to analyze and extract data from.',
     architectDefinition: 'Neural Asset 11: Vision Insight. Converting visual chaos into actionable business intelligence.',
+    tooltip: 'Translates visual data complexity into actionable high-level business intelligence.',
     summitDay: 2
   },
   { 
@@ -245,6 +256,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Optimize for speed and efficiency. Architect prompts that leverage Gemini 2.5 Flash-Lite for near-instantaneous real-time responses.',
     initialQuestion: 'Describe the real-time application (e.g., Chatbot, Auto-complete) where you need maximum response velocity.',
     architectDefinition: 'Neural Asset 12: Real-time Pulse. Eliminating latency in the user experience.',
+    tooltip: 'Eliminates friction in the client journey through ultra-low-latency neural responses.',
     summitDay: 2
   },
   { 
@@ -257,6 +269,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Deconstruct long-form video content. Identify high-impact hooks, key educational moments, and summarize for rapid consumption.',
     initialQuestion: 'Provide the transcript or video description you want me to deconstruct for key moments.',
     architectDefinition: 'Neural Asset 13: Multimodal Mastery. Deconstructing long-form assets for rapid multi-channel distribution.',
+    tooltip: 'Weaponizes long-form content by deconstructing it into high-impact marketing highlights.',
     summitDay: 2
   },
   { 
@@ -269,6 +282,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Convert audio feeds into pristine, formatted text. Focus on speaker identification, key point highlighting, and strategic summarization.',
     initialQuestion: 'Upload or provide the audio source you need transcribed and summarized.',
     architectDefinition: 'Neural Asset 14: Vocal Documentation. Capturing every high-status idea in real-time.',
+    tooltip: 'Captures and documents strategic vocal assets with real-time neural precision.',
     summitDay: 2
   },
   { 
@@ -281,6 +295,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'Engage deep-reasoning protocols. Analyze multi-layered business problems, identify hidden risks, and architect complex solutions with chain-of-thought logic.',
     initialQuestion: 'What is the most complex strategic bottleneck you are currently facing?',
     architectDefinition: 'Neural Asset 15: Thinking Mode. Leveraging advanced reasoning for high-stakes decision architecture.',
+    tooltip: 'Deploys deep-chain-of-thought reasoning to navigate multi-layered high-stakes business decisions.',
     summitDay: 2
   },
   {
@@ -293,6 +308,7 @@ export const MODULES: ModuleDefinition[] = [
     systemPrompt: 'You are the NotebookLM Strategic Analyst. Synthesize multi-source business documents and brand data into a unified strategy. Focus on finding connections between disparate assets.',
     initialQuestion: 'Upload or describe the business documents and brand assets we are synthesizing today.',
     architectDefinition: 'Neural Asset 16: Strategic Synthesis. Unified intelligence across your entire brand ecosystem.',
+    tooltip: 'Synthesizes fractured business data into a single, high-fidelity strategic ecosystem.',
     summitDay: 2
   }
 ];

@@ -88,8 +88,15 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                 </div>
                 <div className="text-center lg:text-left flex-1 min-w-0">
                   <h3 className="text-5xl md:text-8xl font-brand font-bold text-[#F7F4ED] mb-8 tracking-tighter truncate w-full">{masterModule.title}</h3>
-                  <p className="text-xl md:text-3xl text-[#FAF7F2]/60 font-light leading-relaxed mb-12 max-w-4xl">{masterModule.description}</p>
+                  <p className="text-xl md:text-3xl text-[#FAF7F2]/60 font-light leading-relaxed mb-8 max-w-4xl">{masterModule.description}</p>
                   
+                  <div className="p-6 bg-[#D4B46C]/5 rounded-3xl border border-[#D4B46C]/20 mb-12 max-w-2xl mx-auto lg:mx-0">
+                     <p className="text-[12px] font-black gold-text uppercase tracking-widest leading-relaxed italic">
+                        <span className="text-white not-italic mr-2 font-bold">Tactical Purpose:</span>
+                        {masterModule.tooltip}
+                     </p>
+                  </div>
+
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                     {assistantModules.map((assistant) => (
                       <button 
@@ -117,7 +124,16 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                   <span className="text-[9px] gold-text font-black uppercase tracking-[0.2em] bg-[#C9A55C]/5 px-4 py-2 rounded-full border border-[#C9A55C]/10">Day 0{module.summitDay}</span>
                 </div>
                 <h5 className="text-3xl font-brand font-bold text-[#F7F4ED] mb-6 group-hover:gold-text transition-colors leading-tight truncate w-full">{module.title}</h5>
-                <p className="text-[#FAF7F2]/40 text-base leading-relaxed font-light mb-10 h-20 overflow-hidden line-clamp-3">{module.description}</p>
+                <p className="text-[#FAF7F2]/40 text-base leading-relaxed font-light mb-4 h-20 overflow-hidden line-clamp-3">{module.description}</p>
+
+                {/* TACTICAL FIELD MANUAL TOOLTIP */}
+                <div className="p-4 bg-[#D4B46C]/5 rounded-2xl border border-[#D4B46C]/10 mb-6 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                   <p className="text-[10px] font-black gold-text uppercase tracking-widest leading-relaxed italic">
+                     <span className="text-white not-italic mr-2">Why:</span>
+                     {module.tooltip}
+                   </p>
+                </div>
+
                 <div className="flex flex-wrap gap-2 mt-auto">
                    {module.whatYouGet.slice(0, 2).map((w, i) => (
                      <span key={i} className="text-[9px] font-black gold-text border border-[#C9A55C]/20 px-4 py-2 rounded-full uppercase tracking-widest bg-white/5 whitespace-nowrap">{w}</span>

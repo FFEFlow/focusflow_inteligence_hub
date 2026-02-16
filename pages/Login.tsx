@@ -35,8 +35,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
       // Check for suspicious sharing
       if (existing.deviceSignature && existing.deviceSignature !== browserSig) {
-         console.warn("Multiple device access detected for:", u.email);
-         // In a real app, we would block here or send an OTP.
+         // Identity Binding: Multi-device access flagged in registry
          // For now, we update and log the change to the admin registry.
          existing.deviceSignature = browserSig;
          existing.sharingAlert = true;
