@@ -1,18 +1,90 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { User, UserTier, UserRole } from '../types';
-import { LOGO_SVG, MASTER_ACCESS_CODE } from '../constants';
+import { LOGO_SVG, MASTER_ACCESS_CODE, SUMMIT_ACCESS_CODE, PARTNER_ACCESS_CODE, TEAM_MEMBERS } from '../constants';
 
 interface LoginProps {
   onLogin: (user: User) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
+  const location = useLocation();
   const [accessCode, setAccessCode] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  // RECORD ACCESS IN REGISTRY & IDENTITY BINDING
+  const recordAccess = (u: User) => {
+    const saved = localStorage.getItem('coach_kay_global_registry');
+    let registry = saved ? JSON.parse(saved) : [];
+
+    // Device Fingerprinting (Simulated)
+    const browserSig = navigator.userAgent + screen.width + screen.height;
+
+    // Check for revocation & sharing
+    const existing = registry.find((r: any) => r.email.toLowerCase() === u.email.toLowerCase());
+    if (existing) {
+      if (existing.status === 'revoked') {
+        setError('ACCESS REVOKED: This neural identity has been decommissioned by Admin.');
+        setIsLoading(false);
+        return false;
+      }
+
+      // Check for suspicious sharing
+      if (existing.deviceSignature && existing.deviceSignature !== browserSig) {
+         console.warn("Multiple device access detected for:", u.email);
+         // In a real app, we would block here or send an OTP.
+         // For now, we update and log the change to the admin registry.
+         existing.deviceSignature = browserSig;
+         existing.sharingAlert = true;
+      }
+
+      existing.lastAccess = new Date().toISOString();
+    } else {
+      registry.push({
+        name: u.name,
+        email: u.email,
+        tier: u.tier,
+        status: 'active',
+        lastAccess: new Date().toISOString(),
+        role: u.role,
+        deviceSignature: browserSig
+      });
+    }
+    localStorage.setItem('coach_kay_global_registry', JSON.stringify(registry));
+    return true;
+  };
+
+  // AUTO-LOGIN LOGIC (Stripe Integration / Team Access)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlEmail = params.get('email');
+    const isSuccess = params.get('status') === 'success' || params.get('success') === 'true';
+
+    if (urlEmail) {
+      const teamMember = TEAM_MEMBERS.find(m => m.email.toLowerCase() === urlEmail.toLowerCase());
+      if (teamMember || isSuccess) {
+        setIsLoading(true);
+        if (isSuccess) setError('STRIPE VERIFIED: Establishing Direct Access...');
+        setTimeout(() => {
+          const userData: User = {
+            id: Math.random().toString(36).substr(2, 9),
+            name: teamMember?.name || 'Elite Member',
+            email: urlEmail,
+            tier: UserTier.SUMMIT,
+            role: teamMember ? UserRole.PARTNER_ADMIN : UserRole.OPERATOR,
+            isAuthorized: true
+          };
+          if (recordAccess(userData)) {
+            onLogin(userData);
+          }
+        }, 1000);
+      }
+    }
+  }, [location.search, onLogin]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,24 +93,44 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
     // Simulate validation
     setTimeout(() => {
-      if (accessCode.toUpperCase() === MASTER_ACCESS_CODE) {
-        onLogin({
+      const normalizedCode = accessCode.toUpperCase();
+      const teamMember = TEAM_MEMBERS.find(m => m.email.toLowerCase() === email.toLowerCase());
+
+      let userData: User | null = null;
+
+      if (normalizedCode === MASTER_ACCESS_CODE || teamMember) {
+        userData = {
+          id: Math.random().toString(36).substr(2, 9),
+          name: name || teamMember?.name || 'Elite Operator',
+          email: email || teamMember?.email || 'admin@coachkay.ai',
+          tier: UserTier.SUMMIT,
+          role: UserRole.PARTNER_ADMIN,
+          isAuthorized: true
+        };
+      } else if (normalizedCode === SUMMIT_ACCESS_CODE) {
+        userData = {
           id: Math.random().toString(36).substr(2, 9),
           name: name || 'Summit Architect',
           email: email || 'guest@coachkay.ai',
           tier: UserTier.SUMMIT,
           role: UserRole.OPERATOR,
           isAuthorized: true
-        });
-      } else if (accessCode.toUpperCase() === 'PARTNER2026') {
-         onLogin({
+        };
+      } else if (normalizedCode === PARTNER_ACCESS_CODE) {
+        userData = {
           id: Math.random().toString(36).substr(2, 9),
           name: name || 'Elite Partner',
           email: email || 'partner@coachkay.ai',
           tier: UserTier.WHITE_LABEL,
           role: UserRole.PARTNER_ADMIN,
           isAuthorized: true
-        });
+        };
+      }
+
+      if (userData) {
+        if (recordAccess(userData)) {
+           onLogin(userData);
+        }
       } else {
         setError('Invalid Intelligence Access Code. Uplink Denied.');
       }

@@ -17,6 +17,7 @@ import MasterGuide from './pages/MasterGuide';
 import SalesPage from './pages/SalesPage';
 import Concierge from './pages/Concierge';
 import WarRoom from './pages/WarRoom';
+import AdminConsole from './pages/AdminConsole';
 import { GOOGLE_LABS_URL } from './constants';
 
 const App: React.FC = () => {
@@ -175,6 +176,7 @@ const App: React.FC = () => {
                 <Route path="/module/:id" element={<ModuleWizard user={user} />} />
                 <Route path="/chat" element={<GlobalChat user={user} />} />
                 <Route path="/concierge" element={<Concierge user={user} />} />
+                <Route path="/admin" element={<AdminConsole user={user} />} />
                 <Route path="/war-room" element={<WarRoom user={user} onClose={() => window.history.back()} />} />
                 <Route path="/history" element={<History user={user} />} />
                 <Route path="/profile" element={<Profile user={user} onUpdateUser={handleLogin} />} />

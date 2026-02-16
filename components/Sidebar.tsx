@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { User, UserTier } from '../types';
+import { User, UserTier, UserRole } from '../types';
 import { LOGO_SVG, ICONS, MODULES } from '../constants';
 
 interface SidebarProps {
@@ -18,6 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onLogout, isOpen, onClose }) =>
     { name: 'Dashboard', path: '/', icon: 'Dashboard' },
     { name: 'Neural War Room', path: '/war-room', icon: 'Decision' },
     { name: 'Maturity Concierge', path: '/concierge', icon: 'Roadmap' },
+    { name: 'Command Center', path: '/admin', icon: 'Decision', adminOnly: true },
     { name: 'Strategic Chat', path: '/chat', icon: 'AI' },
     { name: 'Master Guide', path: '/guide', icon: 'Guide' },
     { name: 'Profile Archives', path: '/history', icon: 'History' },
@@ -38,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onLogout, isOpen, onClose }) =>
         </div>
 
         <nav className="flex-1 space-y-2">
-          {navItems.map((item) => (
+          {navItems.filter(item => !item.adminOnly || user.role === UserRole.PARTNER_ADMIN).map((item) => (
             <NavLink
               key={item.path}
               to={item.path}

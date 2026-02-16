@@ -11,7 +11,18 @@ export const SUPPORT_EMAIL = "hello@coachkayelevates.org";
 export const CALENDLY_URL = "https://calendly.com/ffe_coach_kay/30min-strategy-call";
 
 export const SUMMIT_PRICE = 697;
-export const MASTER_ACCESS_CODE = "LEGACY2026";
+export const MASTER_ACCESS_CODE = "FOCUS";
+export const SUMMIT_ACCESS_CODE = "LEGACY2026";
+export const PARTNER_ACCESS_CODE = "PARTNER2026";
+
+export const TEAM_MEMBERS = [
+  { name: "John", email: "jrmoyler93@gmail.com" },
+  { name: "Denzel", email: "denzelmcdoug@gmail.com" },
+  { name: "Devon", email: "Scott.devon25@gmail.com" },
+  { name: "Justin", email: "Jusnexuslabs@gmail.com" },
+  { name: "Ahmad", email: "Mrmuhammad300@gmail.com" },
+  { name: "Arthur fayne", email: "Afayne@bdc-usa.com" }
+];
 
 export const LOGO_SVG = (
   <svg viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-24 h-auto md:w-32 drop-shadow-2xl">
@@ -38,7 +49,7 @@ export const ICONS = {
   ),
   AI: (
     <svg className="w-full h-full p-2" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455-2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
     </svg>
   ),
   Decision: (
@@ -89,7 +100,7 @@ export const ICONS = {
 };
 
 export const MODULES: ModuleDefinition[] = [
-  // DAY 01: THE BLUEPRINT (IMAGE 1 FEATURES)
+  // DAY 01: THE BLUEPRINT
   { 
     id: 'nano-photo-lab',
     title: 'Nano Photo Lab',
@@ -119,14 +130,14 @@ export const MODULES: ModuleDefinition[] = [
     title: 'Search Dominator',
     description: 'Connecting to real-time Google Search data to build agents that discuss current events and news.',
     icon: 'Clarity',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Real-time Report'],
     systemPrompt: 'Use search grounding to identify high-authority keywords and real-time news. Architect content that secures 1st-page dominance.',
     initialQuestion: 'What current event or industry news do we need to synthesize into your legacy strategy today?',
     architectDefinition: 'Neural Asset 03: Real-time Grounding. Your strategy must live in the present. Connect your legacy to the global pulse.',
     summitDay: 1
   },
-  { 
+  {
     id: 'maps-strategist',
     title: 'Maps Strategist',
     description: 'Leveraging real-time Google Maps data for location-based business intelligence and routing.',
@@ -187,7 +198,7 @@ export const MODULES: ModuleDefinition[] = [
     summitDay: 1
   },
 
-  // DAY 02: THE FOUNDRY (IMAGE 2 FEATURES)
+  // DAY 02: THE FOUNDRY
   {
     id: 'veo-cinema',
     title: 'Veo Cinema Lab',
