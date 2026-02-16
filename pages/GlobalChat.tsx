@@ -29,13 +29,24 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ user }) => {
       const apiKey = (typeof process !== 'undefined' && process.env?.API_KEY) ||
                      (import.meta as any).env?.VITE_GEMINI_API_KEY ||
                      (window as any).aistudio?.getSelectedApiKey?.();
+      if (!apiKey) throw new Error("Neural Link Offline: No API Key.");
+
       const genAI = new GoogleGenAI(apiKey);
       const model = genAI.getGenerativeModel({
         model: "gemini-2.0-flash",
-        systemInstruction: "You are Coach Kay's lead tactical strategist. You provide high-status, direct, and elite business advice. Use search grounding where appropriate."
+        systemInstruction: "You are Coach Kay's lead tactical strategist. You provide high-status, direct, and elite business advice. You have access to real-time Google Search data to collapse time and space for the user. Always be tactical, concise, and brand-aligned (Navy/Gold/High-Status).",
+        tools: [{ googleSearch: {} }] as any
       });
-      const result = await model.generateContent(input);
+
+      const history = messages.map(m => ({
+        role: m.role === 'user' ? 'user' : 'model',
+        parts: [{ text: m.content }]
+      }));
+
+      const chat = model.startChat({ history: history as any });
+      const result = await chat.sendMessage(input);
       const response = await result.response;
+
       setMessages(prev => [...prev, { role: 'assistant', content: response.text(), timestamp: Date.now() }]);
     } catch (e: any) {
       setMessages(prev => [...prev, { role: 'assistant', content: "UPLINK ERROR: " + e.message, timestamp: Date.now() }]);

@@ -11,9 +11,9 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const navigate = useNavigate();
   const [showWarRoom, setShowWarRoom] = useState(false);
 
-  const masterModule = MODULES.find(m => m.id === 'legacy-engine');
-  const assistantModules = MODULES.filter(m => m.id === 'mogul-engine' || m.id === 'notebook-analyst');
-  const gridModules = MODULES.filter(m => m.id !== 'legacy-engine' && m.id !== 'mogul-engine' && m.id !== 'notebook-analyst');
+  const masterModule = MODULES.find(m => m.id === 'gemini-intel');
+  const assistantModules = MODULES.filter(m => m.id === 'thinking-brain' || m.id === 'flash-velocity');
+  const gridModules = MODULES.filter(m => m.id !== 'gemini-intel' && m.id !== 'thinking-brain' && m.id !== 'flash-velocity');
 
   return (
     <div className="min-h-screen bg-[#0A0E27]">
@@ -29,7 +29,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
           </div>
           <span className="text-[14px] gold-text font-black uppercase tracking-[1em] mb-8 block">Legacy Blueprint Protocol</span>
           <h1 className="text-6xl md:text-[10rem] font-brand font-bold text-[#F7F4ED] tracking-tighter leading-[0.85] mb-12">
-            The <span className="gold-text">Legacy</span> <br /> Engine.
+            The <span className="gold-text">Google</span> <br /> <span className="gold-text">Business</span> Engine.
           </h1>
           <p className="text-[#FAF7F2]/40 text-xl md:text-4xl font-light leading-relaxed max-w-4xl mx-auto mb-16">
             Welcome, {user.name.split(' ')[0]}. Your specialized Focus Flow Elevation (FFE) Intelligence Hub is operational.
@@ -61,6 +61,22 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
       </div>
 
       <div id="modules-grid" className="p-6 md:p-20 max-w-[1700px] mx-auto pb-40">
+        <section className="mb-32">
+          <div
+            onClick={() => navigate('/concierge')}
+            className="premium-card p-12 rounded-[3.5rem] border-2 border-[#D4B46C] bg-gradient-to-r from-[#D4B46C]/10 to-transparent flex flex-col md:flex-row items-center justify-between gap-12 cursor-pointer hover:scale-[1.01] transition-all group shadow-[0_0_50px_rgba(212,180,108,0.15)]"
+          >
+            <div className="flex-1">
+              <span className="text-[10px] gold-text font-black uppercase tracking-[0.4em] mb-4 block">New Feature Deployment</span>
+              <h2 className="text-4xl md:text-5xl font-brand font-bold text-white mb-6">AI Business Maturity Concierge</h2>
+              <p className="text-[#FAF7F2]/60 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                Audit your current infrastructure and receive a personalized 90-day roadmap to $10M Legacy status.
+              </p>
+            </div>
+            <button className="px-12 py-5 gold-gradient text-black text-[11px] font-black uppercase tracking-widest rounded-2xl group-hover:scale-110 transition-transform">Start Audit</button>
+          </div>
+        </section>
+
         <section className="space-y-32">
           {masterModule && (
             <div className="premium-card rounded-[4rem] p-12 md:p-24 relative overflow-hidden border-4 border-[#C9A55C]/40 transition-all duration-700">
@@ -94,8 +110,11 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {gridModules.map((module) => (
               <div key={module.id} onClick={() => navigate(`/module/${module.id}`)} className="premium-card p-12 rounded-[3.5rem] relative group transition-all duration-700 hover:cursor-pointer border-2 flex flex-col h-full overflow-hidden">
-                <div className="w-20 h-20 rounded-3xl bg-[#C9A55C]/5 flex items-center justify-center gold-text mb-12 border-2 border-[#C9A55C]/20 group-hover:scale-110 transition-all shadow-[inset_0_0_20px_rgba(201,165,92,0.05)]">
-                  <div className="w-12 h-12">{(ICONS as any)[module.icon]}</div>
+                <div className="flex justify-between items-start mb-12">
+                  <div className="w-20 h-20 rounded-3xl bg-[#C9A55C]/5 flex items-center justify-center gold-text border-2 border-[#C9A55C]/20 group-hover:scale-110 transition-all shadow-[inset_0_0_20px_rgba(201,165,92,0.05)]">
+                    <div className="w-12 h-12">{(ICONS as any)[module.icon]}</div>
+                  </div>
+                  <span className="text-[9px] gold-text font-black uppercase tracking-[0.2em] bg-[#C9A55C]/5 px-4 py-2 rounded-full border border-[#C9A55C]/10">Day 0{module.summitDay}</span>
                 </div>
                 <h5 className="text-3xl font-brand font-bold text-[#F7F4ED] mb-6 group-hover:gold-text transition-colors leading-tight truncate w-full">{module.title}</h5>
                 <p className="text-[#FAF7F2]/40 text-base leading-relaxed font-light mb-10 h-20 overflow-hidden line-clamp-3">{module.description}</p>

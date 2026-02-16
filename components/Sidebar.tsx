@@ -16,6 +16,8 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onLogout, isOpen, onClose }) =>
 
   const navItems = [
     { name: 'Dashboard', path: '/', icon: 'Dashboard' },
+    { name: 'Neural War Room', path: '/war-room', icon: 'Decision' },
+    { name: 'Maturity Concierge', path: '/concierge', icon: 'Roadmap' },
     { name: 'Strategic Chat', path: '/chat', icon: 'AI' },
     { name: 'Master Guide', path: '/guide', icon: 'Guide' },
     { name: 'Profile Archives', path: '/history', icon: 'History' },

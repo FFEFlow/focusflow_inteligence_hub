@@ -27,7 +27,7 @@ const Landing: React.FC = () => {
       <main className="relative z-10 flex flex-col items-center justify-center pt-32 px-6 text-center max-w-6xl mx-auto">
         <span className="text-[12px] gold-text font-black uppercase tracking-[1em] mb-10 animate-fade-in">Category-of-One AI Intelligence</span>
         <h1 className="text-6xl md:text-[8rem] font-brand font-bold text-white tracking-tighter leading-[0.85] mb-12 animate-fade-in">
-           Build Your <br /> <span className="gold-text">Legacy</span> Hub.
+           The Elite <br /> <span className="gold-text">Google</span> Engine.
         </h1>
         <p className="text-[#FAF7F2]/60 text-xl md:text-3xl font-light leading-relaxed max-w-3xl mb-16 animate-fade-in [animation-delay:0.2s]">
           Transition from operator to architect. The FFE Intelligence Hub is the world's most sophisticated neural engine for high-ticket business owners.
