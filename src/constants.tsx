@@ -101,7 +101,7 @@ export const ICONS = {
 
 export const MODULES: ModuleDefinition[] = [
   // DAY 01: THE BLUEPRINT
-  { 
+  {
     id: 'nano-photo-lab',
     title: 'Nano Photo Lab',
     description: 'Advanced photo editing and neural style shifts. Add objects, remove backgrounds, or change styles by typing.',
@@ -119,7 +119,7 @@ export const MODULES: ModuleDefinition[] = [
     title: 'Veo Animator',
     description: 'Animating images and creating dynamic video ads using Veo 3 visual narrative logic.',
     icon: 'AI',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Veo Prompt Set', 'Scene Map'],
     systemPrompt: 'Translate brand narrative into cinematic visual prompts for Veo 3 animation. Focus on turning static assets into dynamic video ads.',
     initialQuestion: 'Provide the static image description or product photo we are animating today.',
@@ -127,7 +127,7 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Transforms static brand presence into high-velocity cinematic motion assets.',
     summitDay: 1
   },
-  { 
+  {
     id: 'search-dominator',
     title: 'Search Dominator',
     description: 'Connecting to real-time Google Search data to build agents that discuss current events and news.',
@@ -144,8 +144,8 @@ export const MODULES: ModuleDefinition[] = [
     id: 'maps-strategist',
     title: 'Maps Strategist',
     description: 'Leveraging real-time Google Maps data for location-based business intelligence and routing.',
-    icon: 'AI', 
-    tier: UserTier.SUMMIT, 
+    icon: 'AI',
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Geospatial Map'],
     systemPrompt: 'Analyze location-based business opportunities using real-time Google Maps data. Architect routes, place-based authority, and local expansion.',
     initialQuestion: 'What geographic region or location-based business goal are we auditing today?',
@@ -153,12 +153,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Engineers localized authority by weaponizing geospatial intelligence for market dominance.',
     summitDay: 1
   },
-  { 
+  {
     id: 'voice-architect',
     title: 'Voice Architect',
     description: 'Creating conversational voice apps using Gemini Live API logic for immersive brand experiences.',
     icon: 'AI',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Voice Script', 'Interactive Flow'],
     systemPrompt: 'Architect conversational voice experiences. Use Gemini Live API logic to create fluid, natural-sounding interactions for your brand.',
     initialQuestion: 'What is the primary objective of your conversational voice app?',
@@ -166,12 +166,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Automates elite client interactions through low-latency, high-status voice operatives.',
     summitDay: 1
   },
-  { 
+  {
     id: 'nano-image-gen',
     title: 'Nano Image Gen',
     description: 'Generating high-quality brand assets and heroes from text prompts using Nano Banana logic.',
     icon: 'AI',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Visual Asset Prompts'],
     systemPrompt: 'Generate high-fidelity image prompts for Nano Banana models. Focus on creating blog heroes, concepts, and unique brand assets.',
     initialQuestion: 'What unique visual asset are we generating for your application today?',
@@ -179,12 +179,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Rapidly synthesizes proprietary visual assets for high-ticket content funnels.',
     summitDay: 1
   },
-  { 
+  {
     id: 'gemini-intel',
     title: 'Gemini Intel Engine',
     description: 'Deep content analysis and high-status editing using the full Gemini intelligence suite.',
     icon: 'AI',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Analytic Report'],
     systemPrompt: 'Use Gemini intelligence to analyze complex content, make edits, and complete sophisticated tasks. Focus on high-level strategic reasoning.',
     initialQuestion: 'Provide the content or sophisticated task we are analyzing today.',
@@ -192,12 +192,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Deploys advanced reasoning models to deconstruct and solve complex strategic bottlenecks.',
     summitDay: 1
   },
-  { 
+  {
     id: 'chatbot-foundry',
     title: 'Chatbot Foundry',
     description: 'Building context-aware, AI-powered chatbots for support and multi-step bookings.',
     icon: 'AI',
-    tier: UserTier.SUMMIT, 
+    tier: UserTier.SUMMIT,
     whatYouGet: ['Chatbot Logic'],
     systemPrompt: 'Architect context-aware chatbots that remember conversations and handle multi-step tasks. Perfect for support agents or booking systems.',
     initialQuestion: 'Describe the support agent or multi-step booking task your chatbot will handle.',
@@ -220,11 +220,11 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Automates cinematic content production by converting text narratives into visual masterpieces.',
     summitDay: 2
   },
-  { 
+  {
     id: 'aspect-architect',
     title: 'Aspect Architect',
     description: 'Control image aspect ratios. Build apps that create perfect images for vertical phones or horizontal banners.',
-    icon: 'Decision', 
+    icon: 'Decision',
     tier: UserTier.WHITE_LABEL,
     whatYouGet: ['Ratio Logic', 'Dimension Map'],
     systemPrompt: 'Architect precise image generation parameters. Focus on aspect ratios, composition, and resolution scaling for different device formats.',
@@ -233,7 +233,7 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Ensures platform-perfect visual dominance by engineering exact asset dimensions.',
     summitDay: 2
   },
-  { 
+  {
     id: 'vision-analyst',
     title: 'Vision Intelligence',
     description: 'Analyze images. See and understand receipts, menus, or charts to get instant data extraction and summaries.',
@@ -246,7 +246,7 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Translates visual data complexity into actionable high-level business intelligence.',
     summitDay: 2
   },
-  { 
+  {
     id: 'flash-velocity',
     title: 'Flash Velocity',
     description: 'Fast AI responses using 2.5 Flash-Lite. Perfect for instant auto-completes and conversational agents.',
@@ -259,7 +259,7 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Eliminates friction in the client journey through ultra-low-latency neural responses.',
     summitDay: 2
   },
-  { 
+  {
     id: 'video-genius',
     title: 'Video Insight Engine',
     description: 'Video understanding. Find key moments in long videos. Analyze content for summaries or marketing highlights.',
@@ -272,12 +272,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Weaponizes long-form content by deconstructing it into high-impact marketing highlights.',
     summitDay: 2
   },
-  { 
+  {
     id: 'audio-scribe',
     title: 'Audio Transcriptionist',
     description: 'Transcribe audio. Live, real-time transcription of any audio feed for immediate documentation.',
     icon: 'Asset',
-    tier: UserTier.WHITE_LABEL, 
+    tier: UserTier.WHITE_LABEL,
     whatYouGet: ['Clean Transcript', 'Strategic Summary'],
     systemPrompt: 'Convert audio feeds into pristine, formatted text. Focus on speaker identification, key point highlighting, and strategic summarization.',
     initialQuestion: 'Upload or provide the audio source you need transcribed and summarized.',
@@ -285,12 +285,12 @@ export const MODULES: ModuleDefinition[] = [
     tooltip: 'Captures and documents strategic vocal assets with real-time neural precision.',
     summitDay: 2
   },
-  { 
+  {
     id: 'thinking-brain',
     title: 'Strategic Thinking Mode',
     description: 'Think more when needed. Enable "Thinking Mode" to handle your most complex business queries.',
     icon: 'Roadmap',
-    tier: UserTier.WHITE_LABEL, 
+    tier: UserTier.WHITE_LABEL,
     whatYouGet: ['Deep Reasoning Report'],
     systemPrompt: 'Engage deep-reasoning protocols. Analyze multi-layered business problems, identify hidden risks, and architect complex solutions with chain-of-thought logic.',
     initialQuestion: 'What is the most complex strategic bottleneck you are currently facing?',
