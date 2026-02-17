@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://coachkay-ai.org/sitemap.xml
