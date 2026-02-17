@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { User, UserTier } from './types';
@@ -14,12 +15,17 @@ import Blog from './pages/Blog';
 import Landing from './pages/Landing';
 import MasterGuide from './pages/MasterGuide';
 import SalesPage from './pages/SalesPage';
-import { GOOGLE_LABS_URL } from './constants';
+import Concierge from './pages/Concierge';
+import WarRoom from './pages/WarRoom';
+import AdminConsole from './pages/AdminConsole';
+import { GOOGLE_LABS_URL, MASTER_ACCESS_CODE } from './constants';
+import { UserRole } from './types';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
 
@@ -39,7 +45,9 @@ const App: React.FC = () => {
         setHasApiKey(has);
         if (!has && user) setShowAuthModal(true);
       } else {
-        setHasApiKey(!!process.env.API_KEY);
+        // Safe check for process.env (replaced by Vite define)
+        const key = (typeof process !== 'undefined' && process.env?.API_KEY) || (import.meta as any).env?.VITE_GEMINI_API_KEY;
+        setHasApiKey(!!key);
       }
     };
     checkKeyStatus();
@@ -122,6 +130,12 @@ const App: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-10 md:gap-14">
+                <button
+                  onClick={() => setIsFocusMode(!isFocusMode)}
+                  className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${isFocusMode ? 'bg-[#D4B46C] text-black shadow-[0_0_20px_rgba(212,180,108,0.5)]' : 'bg-white/5 text-[#D4B46C] border border-[#D4B46C]/30'}`}
+                >
+                  {isFocusMode ? 'Focus Active' : 'Enable Focus'}
+                </button>
                 <a 
                   href={GOOGLE_LABS_URL} 
                   target="_blank" 
@@ -145,11 +159,11 @@ const App: React.FC = () => {
                 </Link>
               </div>
             </header>
-            <Sidebar user={user} onLogout={handleLogout} isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+            {!isFocusMode && <Sidebar user={user} onLogout={handleLogout} isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />}
             {isSidebarOpen && <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[45] md:hidden" onClick={() => setIsSidebarOpen(false)} />}
           </>
         )}
-        <main className={`flex-1 overflow-y-auto w-full transition-all ${user ? 'md:ml-72 pt-20' : ''}`}>
+        <main className={`flex-1 overflow-y-auto w-full transition-all ${user && !isFocusMode ? 'md:ml-72 pt-20' : user && isFocusMode ? 'pt-20' : ''}`}>
           <Routes>
             {!user ? (
               <>
@@ -162,6 +176,12 @@ const App: React.FC = () => {
                 <Route path="/" element={<Dashboard user={user} />} />
                 <Route path="/module/:id" element={<ModuleWizard user={user} />} />
                 <Route path="/chat" element={<GlobalChat user={user} />} />
+                <Route path="/concierge" element={<Concierge user={user} />} />
+                <Route
+                  path="/admin"
+                  element={user.role === UserRole.PARTNER_ADMIN ? <AdminConsole user={user} /> : <Navigate to="/" replace />}
+                />
+                <Route path="/war-room" element={<WarRoom user={user} onClose={() => window.history.back()} />} />
                 <Route path="/history" element={<History user={user} />} />
                 <Route path="/profile" element={<Profile user={user} onUpdateUser={handleLogin} />} />
                 <Route path="/faq" element={<FAQ />} />

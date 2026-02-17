@@ -1,0 +1,68 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-main: #0A0E27;
+  --navy-dark: #0B162C;
+  --navy-light: #1A2642;
+  --gold-main: #D4B46C;
+  --gold-dark: #C9A55C;
+  --gold-light: #E8C878;
+  --cream-main: #F7F4ED;
+  --cream-light: #FAF7F2;
+}
+
+body {
+  background-color: var(--navy-main);
+  color: var(--cream-main);
+}
+
+.premium-card {
+  background: rgba(26, 38, 66, 0.45);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(212, 180, 108, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4B46C 0%, #E8C878 50%, #D4B46C 100%);
+}
+
+.gold-text {
+  color: #D4B46C;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hud-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(4px, -4px); }
+  50% { transform: translate(-2px, 4px); }
+  75% { transform: translate(-4px, -2px); }
+}
+
+.animate-hud-drift {
+  animation: hud-drift 12s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(1.05); }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 8s ease-in-out infinite;
+}
+
+.font-brand {
+  font-family: 'Playfair Display', serif;
+}

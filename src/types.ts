@@ -39,6 +39,7 @@ export interface ModuleDefinition {
   initialQuestion: string;
   protocolNotes?: string;
   architectDefinition: string; // High-status tooltip content
+  tooltip: string; // Tactical Field Manual: 1-sentence "Why" explanation
   summitDay: 1 | 2; // Linear workflow mapping
 }
 
