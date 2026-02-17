@@ -22,4 +22,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_COACH_KAY }}'
           channelId: live
-          projectId: coach-kay-intelligence-hub
+          projectId: coach-kay-intelligence-h-3159e

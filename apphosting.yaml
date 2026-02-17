@@ -1,0 +1,6 @@
+kind: "AppHostingYaml"
+version: "v1beta"
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+# App Hosting will automatically detect Vite and run 'npm run build'
