@@ -1,9 +1,0 @@
-kind: "AppHostingYaml"
-version: "v1beta"
-# runConfig:
-#   cpu: 1
-#   memoryMiB: 512
-# environmentVariables:
-#   - variable: VITE_GEMINI_API_KEY
-#     secret: VITE_GEMINI_API_KEY
-#     availability: [BUILD, RUNTIME]
